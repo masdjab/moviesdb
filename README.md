@@ -1,16 +1,14 @@
 ## MoviesDB REST
 This project is written as part of technical test for MaxSol.
 
-## Configure Docker DB Env
-To configure database environments (port, username, password, database name, etc), adjust configs in `docker/.env`
-
 ## Setup for Testing
 1. run `make copy-config`
 2. adjust configs in `config.yml` based on your local setup
-3. run `make docker.start`
-4. run `make migrate`
-5. run `make start` to start the server
-6. run `make docker.stop` when you done testing
+3. adjust configs in `docker/.env` (optional)
+4. run `make docker.start`
+5. run `make migrate`
+6. run `make start` to start the server
+7. run `make docker.stop` when you done testing
 
 ## Users Available for Test
 1. username: admin, password: admin
