@@ -24,6 +24,7 @@ This project is written as part of technical test for MaxSol.
     - username, ex: "admin"
     - password, ex: "admin"
   - response:
+    ```
     {
         "success": true,
         "error": "",
@@ -35,22 +36,26 @@ This project is written as part of technical test for MaxSol.
             "token": "MSAW5IFQDCY2X3ZD4GIUBVMW556UXWCDVNGMHRGHONT3ZEYUVBDQ====",
             "last_login": "0001-01-01T00:00:00Z"
         }
-    }    
+    }
+    ```
 - GET /logout
   - header
     - token, ex: "MSAW5IFQDCY2X3ZD4GIUBVMW556UXWCDVNGMHRGHONT3ZEYUVBDQ===="
   - response:
+    ```
     {
         "success": true,
         "error": "",
         "data": null
-    }  
+    }
+    ```
 - GET /movies
   - header
     - token, ex: "MSAW5IFQDCY2X3ZD4GIUBVMW556UXWCDVNGMHRGHONT3ZEYUVBDQ===="
   - request params:
     - keywords (optional), ex: "rass par"
   - response:
+    ```
     {
         "success": true,
         "error": "",
@@ -66,11 +71,13 @@ This project is written as part of technical test for MaxSol.
             }
         ]
     }
+    ```
 - GET /movies/{id}
   - header
     - token, ex: "MSAW5IFQDCY2X3ZD4GIUBVMW556UXWCDVNGMHRGHONT3ZEYUVBDQ===="
   - no request params needed
   - response:
+    ```
     {
         "success": true,
         "error": "",
@@ -84,16 +91,20 @@ This project is written as part of technical test for MaxSol.
             "updated_at": "2023-03-16T02:00:18+07:00"
         }
     }
+    ```
 - POST /movies
   - header
     - token, ex: "MSAW5IFQDCY2X3ZD4GIUBVMW556UXWCDVNGMHRGHONT3ZEYUVBDQ===="
   - request body (json)
+    ```
     {
       "title": "19 oktober",
       "description": "contoh deskripsi film",
       "image_url": "http://123.com/53.jpg"
     }
+    ```
   - response:
+    ```
     {
         "success": true,
         "error": "",
@@ -107,53 +118,64 @@ This project is written as part of technical test for MaxSol.
             "updated_at": "2023-03-16T05:28:49+07:00"
         }
     }
+    ```
 - PATCH /movies/{id}
   - header
     - token, ex: "MSAW5IFQDCY2X3ZD4GIUBVMW556UXWCDVNGMHRGHONT3ZEYUVBDQ===="
   - request body (json)
+    ```
     {
       "title": "tragedi 19 oktober",
       "description": "contoh deskripsi film",
       "image_url": "http://123.com/53.jpg"
     }
+    ```
   - response:
-  {
+    ```
+    {
       "success": true,
       "error": "",
       "data": {
-          "id": 14,
-          "title": "tragedi 19 oktober",
-          "description": "contoh deskripsi film",
-          "rating": 0,
-          "image_url": "http://123.com/53.jpg",
-          "created_at": "2023-03-16T05:28:49+07:00",
-          "updated_at": "2023-03-16T05:30:51+07:00"
+        "id": 14,
+        "title": "tragedi 19 oktober",
+        "description": "contoh deskripsi film",
+        "rating": 0,
+        "image_url": "http://123.com/53.jpg",
+        "created_at": "2023-03-16T05:28:49+07:00",
+        "updated_at": "2023-03-16T05:30:51+07:00"
       }
-  }
+    }
+    ```
 - DELETE /movies/{id}
   - header
     - token, ex: "MSAW5IFQDCY2X3ZD4GIUBVMW556UXWCDVNGMHRGHONT3ZEYUVBDQ===="
   - no params needed
   - response:
+    ```
     {
-        "success": true,
-        "error": "",
-        "data": null
-    }  
+      "success": true,
+      "error": "",
+      "data": null
+    }
+    ```
 - POST /movies/{id}/vote
   - header
     - token, ex: "MSAW5IFQDCY2X3ZD4GIUBVMW556UXWCDVNGMHRGHONT3ZEYUVBDQ===="
   - params:
     - score (0-10)
   - response:
+    ```
     {
-        "success": true,
-        "error": "",
-        "data": null
+      "success": true,
+      "error": "",
+      "data": null
     }
+    ```
 - GET /goroutine-example
   - no header or params needed
   - response:
+    ```
     Goroutine #1 completed in 427 ms
     Goroutine #3 completed in 445 ms
     Goroutine #2 completed in 467 ms
+    ```
