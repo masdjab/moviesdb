@@ -38,6 +38,7 @@ func (s *Server) createHandler() *mux.Router {
 	router.HandleFunc("/movies/{id}", PatchMovieHandler(db)).Methods("PATCH")
 	router.HandleFunc("/movies/{id}", DeleteMovieHandler(db)).Methods("DELETE")
 	router.HandleFunc("/movies/{id}/vote", VoteMovieHandler(db)).Methods("POST")
+	router.HandleFunc("/goroutine-example", LongOperationExampleHandler()).Methods("GET")
 
 	return router
 }

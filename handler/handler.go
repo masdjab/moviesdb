@@ -5,9 +5,12 @@ import (
 	"errors"
 	"fmt"
 	"log"
+	"math/rand"
 	"net/http"
 	"strconv"
 	"strings"
+	"sync"
+	"time"
 
 	"github.com/gorilla/mux"
 
@@ -275,6 +278,32 @@ func VoteMovieHandler(db *database.DbModel) http.HandlerFunc {
 		}
 
 		success(w, nil)
+	}
+}
+
+// GET /goroutine-example
+func LongOperationExampleHandler() http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		var wg sync.WaitGroup
+
+		response := ""
+		worker := func(wnum int) {
+			rand.Seed(time.Now().UnixNano())
+			duration := 200 + rand.Intn(300)
+			time.Sleep(time.Millisecond * time.Duration(duration))
+			response = response + fmt.Sprintf("Goroutine #%d completed in %d ms\n", wnum, duration)
+			wg.Done()
+		}
+
+		for i := 0; i < 3; i++ {
+			wg.Add(1)
+			go worker(i + 1)
+		}
+
+		wg.Wait()
+
+		w.WriteHeader(http.StatusOK)
+		_, _ = fmt.Fprintf(w, response)
 	}
 }
 

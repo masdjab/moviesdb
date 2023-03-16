@@ -151,3 +151,9 @@ This project is written as part of technical test for MaxSol.
         "error": "",
         "data": null
     }
+- GET /goroutine-example
+  - no header or params needed
+  - response:
+    Goroutine #1 completed in 427 ms
+    Goroutine #3 completed in 445 ms
+    Goroutine #2 completed in 467 ms
